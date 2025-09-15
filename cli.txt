@@ -1,0 +1,226 @@
+first install it via winget:
+winget install --id Microsoft.PowerShell --source winget
+
+To install Git using winget:
+winget install --id Git.Git -e --source winget
+
+To install Node.js (which includes npm) using winget, run this command in PowerShell or Command Prompt:
+winget install --id OpenJS.NodeJS -e --source winget
+
+To install ImageMagick via winget with this command:
+winget install --id ImageMagick.ImageMagick -e --source winget
+
+To install Chocolatey with winget using this command:
+winget install --id Chocolatey.Chocolatey -e --source winget
+
+
+
+Set Execution Policy to RemoteSigned:
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+Verify and Retry:
+Get-ExecutionPolicy -Scope CurrentUser
+
+To verify the install:
+node -v    
+npm -v     
+git --version
+magick -version
+choco --version
+
+
+To confirm where Git is installed:
+where git
+
+This will return the full path to the Git executable, e.g.:
+C:\Program Files\Git\cmd\git.exe
+
+Add Git to Your PATH:
+$env:Path += ";C:\Program Files\Git\cmd"
+
+
+
+To check installed packages using `winget`, you can use:
+winget list
+
+🔍 Useful Variants:
+- Filter by name or ID:
+  winget list --id Git.Git
+  winget list --name "Git"
+
+- Check if an upgrade is available:
+  winget list --upgrade-available
+
+- Exact match (case-sensitive):
+  winget list --id Git.Git -e
+
+Backup and Remove Existing Install:
+# Backup existing install
+Copy-Item -Path "C:\ProgramData\chocolatey" -Destination "$env:USERPROFILE\choco_backup" -Recurse -Force
+
+# Remove broken install
+Remove-Item -Path "C:\ProgramData\chocolatey" -Recurse -Force
+
+
+
+git remote add origin https://github.com/mj-nexara/bm-sabab.git
+
+
+Remove-Item -Path "E:\MJDocs\OneDrive" -Recurse -Force
+
+Copy-Item -Path "C:\Users\mjahm\OneDrive" -Destination "E:\MJDocs\OneDrive" -Recurse
+
+Copy-Item -Path "C:\Users\mjahm\OneDrive" -Destination "E:\MJDocs" -Recurse -Force
+
+Move-Item -Path "C:\Users\mjahm\OneDrive\Apps" -Destination "E:\MJDocs\OneDrive"
+
+E:\MJDocs\OneDrive
+
+
+attrib -U "C:\Users\mjahm\OneDrive\1st" /S /D
+
+
+.\scripts\move.ps1
+
+
+# Clear user temp folder
+Remove-Item "$env:temp\*" -Recurse -Force -ErrorAction SilentlyContinue
+
+# Clear system temp folder
+Remove-Item "C:\Windows\Temp\*" -Recurse -Force -ErrorAction SilentlyContinue
+
+
+
+# Empty Recycle Bin for all drives
+$shell = New-Object -ComObject Shell.Application
+$shell.Namespace(0xA).Items() | ForEach-Object { Remove-Item $_.Path -Recurse -Force -ErrorAction SilentlyContinue }
+
+
+# Stop update services
+Stop-Service -Name wuauserv -Force
+Stop-Service -Name bits -Force
+
+# Delete update cache
+Remove-Item "C:\Windows\SoftwareDistribution\Download\*" -Recurse -Force -ErrorAction SilentlyContinue
+
+# Restart services
+Start-Service -Name wuauserv
+Start-Service -Name bits
+
+
+Remove-Item "C:\Windows\Prefetch\*" -Recurse -Force -ErrorAction SilentlyContinue
+
+
+# Example: Remove XPS Viewer
+Disable-WindowsOptionalFeature -Online -FeatureName "XPSViewer" -NoRestart
+
+# Remove pre-installed apps (example: Xbox)
+Get-AppxPackage *xbox* | Remove-AppxPackage
+
+
+Start-Process "cleanmgr.exe" -ArgumentList "/sagerun:1"
+
+
+# Create a new local user
+$Username = "devuser"
+$Password = ConvertTo-SecureString "StrongPassword123!" -AsPlainText -Force
+New-LocalUser -Name $Username -Password $Password -FullName "Development User" -Description "Created for dev environment setup"
+
+# Add to Users group
+Add-LocalGroupMember -Group "Users" -Member $Username
+
+
+
+# Remove a local user
+$Username = "devuser"
+Remove-LocalUser -Name $Username
+
+
+
+# Add user to Administrators group
+Add-LocalGroupMember -Group "Administrators" -Member "devuser"
+
+
+# Remove user from Administrators group
+Remove-LocalGroupMember -Group "Administrators" -Member "devuser"
+
+
+---
+# ┌─────────────────────────────────────────────┐
+# │ MJ Ahmad's Developer Shell Ritual           │
+# └─────────────────────────────────────────────┘
+
+# 🧭 Set location to workspace root
+Set-Location "C:\mj-nexara"
+
+# 📁 Show current folder structure
+Write-Host "`n📂 Current Directory:" -ForegroundColor Cyan
+Get-ChildItem | Format-Table Name, LastWriteTime
+
+# 🧠 Load custom aliases
+Set-Alias ll Get-ChildItem
+Set-Alias gs Get-Process
+Set-Alias edit notepad
+
+# 🛠️ Load dev scripts
+$global:ScriptRoot = "C:\mj-nexara\scripts"
+. "$ScriptRoot\optimize.ps1"
+. "$ScriptRoot\migrate.ps1"
+
+# 📜 Show today's ritual log (if exists)
+$logPath = "C:\mj-nexara\rituals\$(Get-Date -Format 'yyyy-MM-dd')\log.txt"
+if (Test-Path $logPath) {
+    Write-Host "`n📜 Today's Ritual Log:" -ForegroundColor Yellow
+    Get-Content $logPath
+}
+
+# 🧾 Reminder to document every session
+Write-Host "`n📝 Reminder: Document every change in README + YAML anchor." -ForegroundColor Green
+
+# 🧘 Optional: Set prompt style
+function prompt {
+    "[$(Get-Date -Format 'HH:mm')] PS $PWD> "
+}
+
+
+---
+# ┌─────────────────────────────────────────────┐
+# │ 🛠️ Nexara Initialization Ritual             │
+# └─────────────────────────────────────────────┘
+
+# 📍 Set working directory
+Set-Location "C:\mj-nexara"
+
+# 🌐 Load multilingual README anchors
+$readmePath = "C:\mj-nexara\README-bn.md"
+if (Test-Path $readmePath) {
+    Write-Host "`n📖 বাংলা README:" -ForegroundColor Cyan
+    Get-Content $readmePath -TotalCount 10
+}
+
+# 🔗 Load symlink manifest
+$manifestPath = "C:\mj-nexara\manifests\symlinks.yaml"
+if (Test-Path $manifestPath) {
+    Write-Host "`n🔗 Symlink Manifest:" -ForegroundColor Yellow
+    Get-Content $manifestPath
+}
+
+# ⚙️ Load optimization and migration scripts
+$scriptRoot = "C:\mj-nexara\scripts"
+. "$scriptRoot\optimize.ps1"
+. "$scriptRoot\migrate.ps1"
+
+# 🧾 Log today's initialization
+$logDir = "C:\mj-nexara\rituals\$(Get-Date -Format 'yyyy-MM-dd')"
+New-Item -ItemType Directory -Path $logDir -Force | Out-Null
+"[$(Get-Date -Format 'HH:mm:ss')] Initialized Nexara environment." | Out-File "$logDir\init.log" -Append
+
+# 🧘 Optional: Set prompt style
+function prompt {
+    "[$(Get-Date -Format 'HH:mm')] Nexara $PWD> "
+}
+
+# 🧠 Reminder
+Write-Host "`n📝 Document every change with YAML anchors and README updates." -ForegroundColor Green
+
+
