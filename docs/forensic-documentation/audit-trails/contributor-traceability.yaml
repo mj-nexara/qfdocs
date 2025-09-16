@@ -1,0 +1,40 @@
+contributors:
+  - name: MJ Ahmad
+    role: Director
+    did: did:key:z6MkgWS6mju6DzmtQna69G2rw13s3r3KQopreNViupVLoGg5
+    onboarding_date: 2021-03-01
+    verified: true
+    ethics_clause_accepted: true
+    signed_manifest: verifiable-manifest/signed-manifest.json
+
+  - name: Farzana Rahman
+    role: Legal Counsel
+    did: did:key:z6MkfYx6qv9JpZ3bT1r8X9mGv2s7kL9dQpXv7FhTnYwKjUe3R
+    onboarding_date: 2022-06-15
+    verified: true
+    ethics_clause_accepted: true
+    signed_manifest: verifiable-manifest/signed-manifest.json
+
+  - name: Tanvir Hossain
+    role: Forensic Auditor
+    did: did:key:z6MkhTg7pL2sQm8dN4v6Wf9rT3x5jK2cRpYw9GgVmXoLhTq7B
+    onboarding_date: 2023-01-10
+    verified: true
+    ethics_clause_accepted: true
+    signed_manifest: verifiable-manifest/signed-manifest.json
+
+  - name: Nusrat Jahan
+    role: Ethics Advisor
+    did: did:key:z6MkfWc8rM3vKp9eT2s6Xg8nF1u4jL7bQpZx8HhUnYvMjRe5C
+    onboarding_date: 2023-08-05
+    verified: true
+    ethics_clause_accepted: true
+    signed_manifest: verifiable-manifest/signed-manifest.json
+
+  - name: Imran Kabir
+    role: Contributor Lead
+    did: did:key:z6MkgVd9nN1rLp6fU3t7Yh9mG2v5kJ3dQpXw7FiTnZvNkTe6D
+    onboarding_date: 2024-02-20
+    verified: true
+    ethics_clause_accepted: true
+    signed_manifest: verifiable-manifest/signed-manifest.json

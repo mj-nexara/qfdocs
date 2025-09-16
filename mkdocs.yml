@@ -1,54 +1,88 @@
-site_name: Quraner Fariwala – Research, Printing & Distribution of the Holy Quran
-site_url: https://mj-nexara.github.io/qfdocs
+site_name: Quraner Fariwala Documentation
+site_description: Dignity-first governance, forensic documentation, and ethical distribution
+site_author: MJ Ahmad
 repo_url: https://github.com/mj-nexara/qfdocs
-repo_name: mj-nexara/qfdocs
 
 theme:
   name: material
-  language: en
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+  palette:
+    scheme: slate
+    primary: indigo
+    accent: cyan
   features:
-    - navigation.instant
+    - navigation.tabs
     - navigation.sections
     - content.code.copy
-    - search.highlight
-
-plugins:
-  - search
-  - git-revision-date-localized
-  - awesome-pages
-
-markdown_extensions:
-  - admonition
-  - toc:
-      permalink: true
-  - pymdownx.details
-  - pymdownx.superfences
+    - content.action.edit
 
 nav:
   - Home: index.md
-  - Quran Project:
-      - Printing Method: quran/printing-method.md
-      - Validation & Endorsements: quran/validation.md
-      - Distribution Framework: quran/distribution.md
-      - Comparative Analysis: quran/comparison.md
-  - Investment & Governance:
-      - Strategic Plan: investment/plan.md
-      - Intake Policy: investment/intake-policy.md
-      - Dividend Structure: investment/dividend-structure.md
-      - Investor Records: investment/investor-records.md
-  - 2023 Incident:
-      - Overview: incident/overview.md
-      - Tarek Jamil: incident/person-01_tarek-jamil/README.md
-      - Hossain: incident/person-02_hossain/README.md
-      - Hamidullah: incident/person-03_hamidullah/README.md
-  - Legal & Ownership:
-      - Licensing: legal/licensing.md
-      - Ownership Declaration: legal/ownership.md
-      - Audit Trail: legal/audit-trail.md
-  - Media & Outreach:
-      - Testimonials: media/testimonials.md
-      - Gallery: media/gallery.md
-      - Social Posts: media/social-posts.md
-  - Contributors:
-      - Onboarding Guide: contributors/onboarding.md
-      - Contributor Metadata: contributors/metadata.yaml
+  - Manifesto: manifesto.md
+  - Governance:
+      - Mission & Ethics: governance/mission-ethics.md
+      - Board & Leadership: governance/board-leadership.md
+      - Governance Policy: governance/governance-policy.md
+      - Constitution: governance/constitution.md
+  - Legal Ownership:
+      - Director Declaration: legal-ownership/director-declaration_MJ-Ahmad.md
+      - Legal Basis (Bangladesh): legal-ownership/legal-basis_BD.md
+      - Legal Basis (International): legal-ownership/legal-basis_INT.md
+      - Ownership Structure: legal-ownership/ownership-structure.yaml
+      - DID Identity: legal-ownership/did-identity.md
+  - Verifiable Manifest:
+      - Identity Manifest: verifiable-manifest/mj-ahmad_identity_manifest_v1.3.1.json
+      - Signed Manifest: verifiable-manifest/signed-manifest.json
+      - Verification Report: verifiable-manifest/verify-report.json
+      - LumID Config: verifiable-manifest/lumid-config.json
+  - Contributor Ethics: nexara-integrations.md
+  - Forensic Documentation:
+      - Incidents:
+          - Hasnabad School Incident: forensic-documentation/incidents/2021_Hasnabad_School_Incident.md
+          - Fund Misuse Allegation: forensic-documentation/incidents/2022_Fund_Misuse_Allegation.md
+          - Metadata: forensic-documentation/incidents/metadata.yaml
+      - Audit Trails:
+          - Financial Audit: forensic-documentation/audit-trails/financial-audit_2023.md
+          - Contributor Traceability: forensic-documentation/audit-trails/contributor-traceability.yaml
+      - Legal Responses:
+          - Court Submissions: forensic-documentation/legal-responses/court-submissions/
+          - Lawyer Letters: forensic-documentation/legal-responses/lawyer-letters/
+          - Verdicts: forensic-documentation/legal-responses/verdicts/
+  - Quran Research & Distribution:
+      - Partner Institutions: quran-research-distribution/partner-institutions.md
+  - Financial Claims Settlement:
+      - Verified Creditors: financial-claims-settlement/verified-creditors.yaml
+      - Payment Status: financial-claims-settlement/payment-status.md
+      - Delay Compensation Policy: financial-claims-settlement/delay-compensation-policy.md
+  - Public Reputation Shield:
+      - False Allegation Tracker: public-reputation-shield/false-allegation-tracker.yaml
+      - Reputation Monitoring Policy: public-reputation-shield/reputation-monitoring-policy.md
+  - Monitoring & Research:
+      - Monitoring Framework: monitoring-research-system/monitoring-framework.md
+      - Research Methodology: monitoring-research-system/research-methodology.md
+  - International Compliance:
+      - Global Standards: international-compliance/global-standards.md
+      - Multilingual Access Policy: international-compliance/multilingual-access-policy.md
+      - Cross-Border Defense: international-compliance/cross-border-defense.md
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.emoji
+
+plugins:
+  - search
+  - git-revision-date
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/mj-nexara
